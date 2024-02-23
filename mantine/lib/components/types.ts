@@ -81,3 +81,25 @@ export interface AccordionElement<TE, TS, TP>
     label?: DataType;
     variant?: "default" | "contained" | "filled" | "separated";
 }
+
+export interface ListElement<TE, TS, TP>
+    extends MantineContainerElement<TE, TS, TP> {
+    subtype: "list";
+    offset?: DataType | boolean;
+    ordered?: DataType | boolean;
+    listStyleType?: DataType;
+}
+
+export interface TabsElement<TE, TS, TP>
+    extends MantineContainerElement<TE, TabItemElement<TE, TS, TP>, TP> {
+    subtype: "tabs";
+    variant?: DataType | "default" | "outline" | "pills";
+    radius?: DataType | MantineSize;
+    tabs: { key: string; label: string; icon?: IconKeys }[];
+}
+
+export interface TabItemElement<TE, TS, TP>
+    extends MantineContainerElement<TE, TS, TP> {
+    subtype: "tabItem";
+    tabKey: string;
+}
